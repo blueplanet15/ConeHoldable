@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+﻿using System.ComponentModel;
 using UnityEngine;
 
 namespace ConeHoldable
