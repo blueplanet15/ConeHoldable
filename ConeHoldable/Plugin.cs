@@ -6,10 +6,12 @@ using UnityEngine;
 
 namespace ConeHoldable
 {
+    [Description("HauntedModMenu")]
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
         bool done;
+        GameObject cone;
         void Update()
         {
             if (done || GorillaTagger.Instance.offlineVRRig == null || GorillaLocomotion.GTPlayer.Instance == null)
@@ -19,9 +21,21 @@ namespace ConeHoldable
             done = true;
         }
 
+        void OnDisable()
+        {
+            if (!done) return;
+            cone.SetActive(false);
+        }
+        
+        void OnEnable()
+        {
+            if (!done) return;
+            cone.SetActive(true);
+        }
+
         void OnGameInitialized()
         {
-            GameObject cone = LoadAsset("ConeHold");
+            cone = LoadAsset("ConeHold");
             cone.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("RigAnchor/rig/body/shoulder.R/upper_arm.R/forearm.R/hand.R"), false);
         }
 
