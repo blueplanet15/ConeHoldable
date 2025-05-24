@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace ConeHoldable
 {
-    [HarmonyPatch(typeof(GorillaLocomotion.Player))]
+    [HarmonyPatch(typeof(GorillaLocomotion.GTPlayer))]
     [HarmonyPatch("Awake", MethodType.Normal)]
     internal class ExamplePatch
     {
-        private static void Postfix(GorillaLocomotion.Player __instance)
+        private static void Postfix(GorillaLocomotion.GTPlayer __instance)
         {
             OnGameInitialized();
         }
