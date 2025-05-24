@@ -1,8 +1,8 @@
-﻿using BepInEx;
+using BepInEx;
 using System;
 using System.IO;
 using System.Reflection;
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace ConeHoldable
@@ -13,13 +13,9 @@ namespace ConeHoldable
     {
         bool done;
         GameObject cone;
-        void Update()
+        void Start()
         {
-            if (done || GorillaTagger.Instance.offlineVRRig == null || GorillaLocomotion.GTPlayer.Instance == null)
-                return;
-
-            OnGameInitialized();
-            done = true;
+            GorillaTagger.OnPlayerSpawned(OnGameInitialized);
         }
 
         void OnDisable()
@@ -38,6 +34,7 @@ namespace ConeHoldable
         {
             cone = LoadAsset("ConeHold");
             cone.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("RigAnchor/rig/body/shoulder.R/upper_arm.R/forearm.R/hand.R"), false);
+            done = true;
         }
 
         static AssetBundle assetBundle = null;
