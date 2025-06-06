@@ -4,7 +4,7 @@ A mod for Gorilla Tag that spawns a client-sided holdable in your right hand
 # BP15's CHANGES
 
 - Added an enable/disable for it
-- Made it compatibile with LunasHauntedTweaks
+- Made it compatibile with LunasHauntedTweaks / HauntedModMenu
 
 <img src="https://i.imgur.com/JiW5wWG.png" width=400px>
 
